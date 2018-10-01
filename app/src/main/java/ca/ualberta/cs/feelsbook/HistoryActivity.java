@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class HistoryActivity extends Activity {
 
+    public static final String SELECTED_RECORD = "ca.ualberta.cs.feelsbook.RECORD_TEXT";
     private ListView recordsList;
     ArrayAdapter<String> adapter;
 
@@ -29,6 +32,20 @@ public class HistoryActivity extends Activity {
         String message = intent.getStringExtra(FeelsBookActivity.RECORD_LIST);
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(message);
+
+        recordsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> selection, View v, int position, long l) {
+                //setResult(RESULT_OK);
+                //String text = bodyText.getText().toString();
+                //saveInFile(text, new Date(System.currentTimeMillis()));
+                //finish();
+
+                setResult(RESULT_OK);
+                String text = (String) selection.getItemAtPosition(position);
+                startEditRecordActivity(text);
+
+            }
+        });
     }
 
     @Override
@@ -60,6 +77,12 @@ public class HistoryActivity extends Activity {
             e.printStackTrace();
         }
         return records.toArray(new String[records.size()]);
+    }
+
+    private void startEditRecordActivity(String text) {
+        Intent intent = new Intent(this, EditRecordActivity.class);
+        intent.putExtra(SELECTED_RECORD, text);
+        startActivity(intent);
     }
 
 }
