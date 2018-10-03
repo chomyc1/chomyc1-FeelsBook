@@ -37,8 +37,8 @@ public class FeelsBookActivity extends Activity {
 		setContentView(R.layout.main);
 
 		bodyText = (EditText) findViewById(R.id.body);
-		Button clearButton = (Button) findViewById(R.id.clear);
 		Button saveButton = (Button) findViewById(R.id.save);
+		Button historyButton = (Button) findViewById(R.id.viewHistory);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
 		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,7 +65,7 @@ public class FeelsBookActivity extends Activity {
 			}
 		});
 
-		clearButton.setOnClickListener(new View.OnClickListener() {
+		historyButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();

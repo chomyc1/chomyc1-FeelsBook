@@ -34,15 +34,15 @@
         android:scrollbars="horizontal" />
 
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clear" />
+        android:text="@string/save" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/viewHistory"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save" />
+        android:text="@string/view_history" />
 
 </LinearLayout>

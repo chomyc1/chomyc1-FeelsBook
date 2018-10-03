@@ -6,5 +6,6 @@
     <string name="save">Save</string>
     <string name="clear">Clear</string>
     <string name="file_name">file.sav</string>
+    <string name="view_history">View history</string>
 
 </resources>
