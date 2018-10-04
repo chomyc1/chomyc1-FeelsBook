@@ -19,15 +19,15 @@
     </ListView>
 
     <Button
-        android:id="@+id/clear4"
+        android:id="@+id/countButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clear" />
+        android:text="@string/view_count" />
 
     <Button
-        android:id="@+id/save2"
+        android:id="@+id/deleteHistoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save" />
+        android:text="@string/delete_history" />
 
 </LinearLayout>

@@ -7,5 +7,9 @@
     <string name="clear">Clear</string>
     <string name="file_name">file.sav</string>
     <string name="view_history">View history</string>
+    <string name="edit">Save changes</string>
+    <string name="delete_record">Delete record</string>
+    <string name="view_count">View emotion count</string>
+    <string name="delete_history">Delete history</string>
 
 </resources>
