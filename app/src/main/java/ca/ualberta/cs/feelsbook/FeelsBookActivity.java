@@ -1,11 +1,14 @@
 package ca.ualberta.cs.feelsbook;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,12 +26,16 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 public class FeelsBookActivity extends Activity {
 
 	public static final String RECORD_LIST = "ca.ualberta.cs.feelsbook.RECORDS";
 	private EditText bodyText;
-	private ListView oldTweetsList;
-	ArrayAdapter<String> adapter;
+	private ListView recordsListView;
+	private ArrayAdapter<EmotionRecord> adapter;
+	private ArrayList<EmotionRecord> emotionRecordList;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -39,9 +46,9 @@ public class FeelsBookActivity extends Activity {
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
 		Button historyButton = (Button) findViewById(R.id.viewHistory);
-		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
+		recordsListView = (ListView) findViewById(R.id.oldTweetsList);
 
-		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		recordsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> selection, View v, int position, long l) {
 				//setResult(RESULT_OK);
 				//String text = bodyText.getText().toString();
@@ -49,9 +56,9 @@ public class FeelsBookActivity extends Activity {
 				//finish();
 
 				setResult(RESULT_OK);
-				String text = (String) selection.getItemAtPosition(position);
+                EmotionRecord clickedRecord = (EmotionRecord) selection.getItemAtPosition(position);
+				String text = clickedRecord.toString();
 				startHistoryActivity(text);
-
 			}
 		});
 
@@ -59,9 +66,12 @@ public class FeelsBookActivity extends Activity {
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
-				saveInFile(text, new Date(System.currentTimeMillis()));
-				//finish();
 
+				EmotionRecord newRecord = new Sadness(text, new Date(System.currentTimeMillis()));
+				emotionRecordList.add(newRecord);
+				adapter.notifyDataSetChanged();
+				saveInFile();
+				//finish();
 			}
 		});
 
@@ -71,7 +81,6 @@ public class FeelsBookActivity extends Activity {
 				String text = bodyText.getText().toString();
 				startHistoryActivity(text);
 				//finish();
-
 			}
 		});
 	}
@@ -80,39 +89,44 @@ public class FeelsBookActivity extends Activity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		String[] tweets = loadFromFile();
-		adapter = new ArrayAdapter<String>(this, R.layout.list_item, tweets);
-		oldTweetsList.setAdapter(adapter);
+		loadFromFile();
+		adapter = new ArrayAdapter<EmotionRecord>(this, R.layout.list_item, emotionRecordList);
+		recordsListView.setAdapter(adapter);
 	}
 
-	private String[] loadFromFile() {
-		ArrayList<String> tweets = new ArrayList<String>();
-		try {
-			FileInputStream fis = openFileInput(getString(R.string.file_name));
-			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-			String line = in.readLine();
-			while (line != null) {
-				tweets.add(line);
-				line = in.readLine();
-			}
+    private void loadFromFile() {
+        emotionRecordList = new ArrayList<EmotionRecord>();
+        try {
+            FileInputStream fis = openFileInput(getString(R.string.file_name));
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson jsonConverter = new Gson();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return tweets.toArray(new String[tweets.size()]);
-	}
+            //Taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
+            // 2017-01-24 18:19
+            Type listType = new TypeToken<ArrayList<Joy>>(){}.getType();
+            emotionRecordList = jsonConverter.fromJson(in, listType);
 
-	private void saveInFile(String text, Date date) {
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            emotionRecordList = new ArrayList<EmotionRecord>();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+	private void saveInFile() {
 		try {
-			FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_APPEND);
-			String saveString = date.toString() + " | " + text;
-			saveString += "\n";
-			fos.write(saveString.getBytes());
-			fos.close();
+			FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_PRIVATE); // Replace this with file_name!
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson jsonConverter = new Gson();
+
+            jsonConverter.toJson(emotionRecordList, out);
+            out.flush();
+            fos.close();
+            // Do we close the BufferedWriter?
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,3 +143,41 @@ public class FeelsBookActivity extends Activity {
 	}
 }
 
+	/*
+	private EmotionRecord[] loadFromFile() {
+		ArrayList<EmotionRecord> tweets = new ArrayList<EmotionRecord>();
+		try {
+			FileInputStream fis = openFileInput(getString(R.string.file_name));
+			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+			Gson jsonConverter = new Gson();
+			String line = in.readLine();
+			while (line != null) {
+				tweets.add(line);
+				line = in.readLine();
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tweets.toArray(new String[tweets.size()]);
+	}*/
+
+	/*	private void saveInFile(String text, Date date) {
+		try {
+			FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_APPEND); // Replace this with file_name!
+			String saveString = date.toString() + " | " + text;
+			saveString += "\n";
+			fos.write(saveString.getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}*/
