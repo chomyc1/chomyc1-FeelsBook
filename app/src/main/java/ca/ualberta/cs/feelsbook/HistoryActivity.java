@@ -181,9 +181,6 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
             out.close();
             fos.close();
 
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
