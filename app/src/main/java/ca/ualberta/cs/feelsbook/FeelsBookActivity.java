@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +33,8 @@ import com.google.gson.reflect.TypeToken;
 
 public class FeelsBookActivity extends Activity {
 
-	public static final String RECORD_LIST = "ca.ualberta.cs.feelsbook.RECORDS";
+	private final int maxCommentLength = 140;
 	private EditText bodyText;
-	private ListView recordsListView;
-	private ArrayAdapter<EmotionRecord> adapter;
 	private ArrayList<EmotionRecord> emotionRecordList;
 
 	/** Called when the activity is first created. */
@@ -45,46 +44,107 @@ public class FeelsBookActivity extends Activity {
 		setContentView(R.layout.main);
 
 		bodyText = (EditText) findViewById(R.id.body);
-		Button saveButton = (Button) findViewById(R.id.save);
 		Button historyButton = (Button) findViewById(R.id.viewHistory);
-		recordsListView = (ListView) findViewById(R.id.oldTweetsList);
 
-		recordsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			public void onItemClick(AdapterView<?> selection, View v, int position, long l) {
-				//setResult(RESULT_OK);
-				//String text = bodyText.getText().toString();
-				//saveInFile(text, new Date(System.currentTimeMillis()));
-				//finish();
+		Button angerButton = (Button) findViewById(R.id.angerButton);
+		Button fearButton = (Button) findViewById(R.id.fearButton);
+		Button joyButton = (Button) findViewById(R.id.joyButton);
+		Button loveButton = (Button) findViewById(R.id.loveButton);
+		Button sadnessButton = (Button) findViewById(R.id.sadnessButton);
+		Button surpriseButton = (Button) findViewById(R.id.surpriseButton);
 
-				setResult(RESULT_OK);
-                EmotionRecord clickedRecord = (EmotionRecord) selection.getItemAtPosition(position);
-				String text = clickedRecord.toString();
-				startHistoryActivity(text);
+		angerButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String text = bodyText.getText().toString();
+				if (text.length() > maxCommentLength) {
+					notifyCommentLength();
+				}
+				else {
+					EmotionRecord newRecord = new Anger(text, new Date(System.currentTimeMillis()));
+					emotionRecordList.add(newRecord);
+					saveInFile();
+					notifyEmotionSaved(newRecord.getEmotionType());
+					setResult(RESULT_OK);
+				}
 			}
 		});
 
-		saveButton.setOnClickListener(new View.OnClickListener() {
+		fearButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
-				if (text.length() > 140) {
-					Context context = getApplicationContext();
-					CharSequence message = getString(R.string.message_too_long);
-					int duration = Toast.LENGTH_LONG;
-					Toast toast = Toast.makeText(context, message, duration);
-					toast.show();
+				if (text.length() > maxCommentLength) {
+					notifyCommentLength();
+				}
+				else {
+					EmotionRecord newRecord = new Fear(text, new Date(System.currentTimeMillis()));
+					emotionRecordList.add(newRecord);
+					saveInFile();
+					notifyEmotionSaved(newRecord.getEmotionType());
+					setResult(RESULT_OK);
+				}
+			}
+		});
+
+		joyButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String text = bodyText.getText().toString();
+				if (text.length() > maxCommentLength) {
+					notifyCommentLength();
+				}
+				else {
+					EmotionRecord newRecord = new Joy(text, new Date(System.currentTimeMillis()));
+					emotionRecordList.add(newRecord);
+					saveInFile();
+					notifyEmotionSaved(newRecord.getEmotionType());
+					setResult(RESULT_OK);
+				}
+			}
+		});
+
+		loveButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String text = bodyText.getText().toString();
+				if (text.length() > maxCommentLength) {
+					notifyCommentLength();
+				}
+				else {
+					EmotionRecord newRecord = new Love(text, new Date(System.currentTimeMillis()));
+					emotionRecordList.add(newRecord);
+					saveInFile();
+					notifyEmotionSaved(newRecord.getEmotionType());
+					setResult(RESULT_OK);
+				}
+			}
+		});
+
+		sadnessButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String text = bodyText.getText().toString();
+				if (text.length() > maxCommentLength) {
+					notifyCommentLength();
 				}
 				else {
 					EmotionRecord newRecord = new Sadness(text, new Date(System.currentTimeMillis()));
 					emotionRecordList.add(newRecord);
-					adapter.notifyDataSetChanged();
 					saveInFile();
+					notifyEmotionSaved(newRecord.getEmotionType());
+					setResult(RESULT_OK);
+				}
+			}
+		});
 
-					Context context = getApplicationContext();
-					CharSequence message = getString(R.string.record_saved);
-					int duration = Toast.LENGTH_LONG;
-					Toast toast = Toast.makeText(context, message, duration);
-					toast.show();
+		surpriseButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String text = bodyText.getText().toString();
+				if (text.length() > maxCommentLength) {
+					notifyCommentLength();
+				}
+				else {
+					EmotionRecord newRecord = new Surprise(text, new Date(System.currentTimeMillis()));
+					emotionRecordList.add(newRecord);
+					saveInFile();
+					notifyEmotionSaved(newRecord.getEmotionType());
+					setResult(RESULT_OK);
 				}
 			}
 		});
@@ -94,7 +154,6 @@ public class FeelsBookActivity extends Activity {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
 				startHistoryActivity(text);
-				//finish();
 			}
 		});
 	}
@@ -104,8 +163,6 @@ public class FeelsBookActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onStart();
 		loadFromFile();
-		adapter = new ArrayAdapter<EmotionRecord>(this, R.layout.list_item, emotionRecordList);
-		recordsListView.setAdapter(adapter);
 	}
 
     private void loadFromFile() {
@@ -150,48 +207,24 @@ public class FeelsBookActivity extends Activity {
 		}
 	}
 
+	private void notifyCommentLength() {
+		Context context = getApplicationContext();
+		CharSequence message = getString(R.string.message_too_long);
+		int duration = Toast.LENGTH_LONG;
+		Toast toast = Toast.makeText(context, message, duration);
+		toast.show();
+	}
+
+	private void notifyEmotionSaved(String emotion) {
+		Context context = getApplicationContext();
+		CharSequence message = emotion + getString(R.string.record_saved);
+		int duration = Toast.LENGTH_SHORT;
+		Toast toast = Toast.makeText(context, message, duration);
+		toast.show();
+	}
+
 	private void startHistoryActivity(String text) {
 		Intent intent = new Intent(this, HistoryActivity.class);
-		intent.putExtra(RECORD_LIST, text);
 		startActivity(intent);
 	}
 }
-
-	/*
-	private EmotionRecord[] loadFromFile() {
-		ArrayList<EmotionRecord> tweets = new ArrayList<EmotionRecord>();
-		try {
-			FileInputStream fis = openFileInput(getString(R.string.file_name));
-			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-			Gson jsonConverter = new Gson();
-			String line = in.readLine();
-			while (line != null) {
-				tweets.add(line);
-				line = in.readLine();
-			}
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return tweets.toArray(new String[tweets.size()]);
-	}*/
-
-	/*	private void saveInFile(String text, Date date) {
-		try {
-			FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_APPEND); // Replace this with file_name!
-			String saveString = date.toString() + " | " + text;
-			saveString += "\n";
-			fos.write(saveString.getBytes());
-			fos.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}*/

@@ -51,11 +51,6 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
         Button deleteHistoryButton = (Button) findViewById(R.id.deleteHistoryButton);
         recordsListView = (ListView) findViewById(R.id.recordsList);
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(FeelsBookActivity.RECORD_LIST);
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(message);
-
         emotionCountButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setResult(RESULT_OK);

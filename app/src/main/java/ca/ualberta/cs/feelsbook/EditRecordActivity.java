@@ -26,9 +26,8 @@ public class EditRecordActivity extends Activity {
         String message = outputIntent.getStringExtra(HistoryActivity.SELECTED_MESSAGE);
         Date date = (Date) outputIntent.getSerializableExtra(HistoryActivity.SELECTED_DATE);
 
-        TextView textView = (TextView) findViewById(R.id.textView2);
-        textView.setText(message);
         messageText = (EditText) findViewById(R.id.messageText);
+        messageText.setText(message, EditText.BufferType.EDITABLE);
         Button editButton = (Button) findViewById(R.id.editButton);
 
 

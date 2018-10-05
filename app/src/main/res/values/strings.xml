@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Joshua said:</string>
+    <string name="optional_comment">Optional comment:</string>
     <string name="app_name">FeelsBook</string>
     <string name="save">Save</string>
     <string name="clear">Clear</string>
@@ -17,7 +17,18 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="record_edited">Emotion record edited.</string>
-    <string name="record_saved">Emotion record saved.</string>
+    <string name="record_saved">" record saved."</string>
     <string name="message_too_long">Comments are 140 characters or less. The emotion record was not saved.</string>
+    <string name="comment_hint">Type in a comment...</string>
+    <string name="emotions">Emotions:</string>
+    <string name="Anger">Record anger</string>
+    <string name="Fear">Record fear</string>
+    <string name="Joy">Record joy</string>
+    <string name="Love">Record love</string>
+    <string name="Sadness">Record sadness</string>
+    <string name="Surprise">Record surprise</string>
+    <string name="no_emotion_selected">Please select an emotion.</string>
+    <string name="record_history">Emotion record history:</string>
+    <string name="comment">Comment:</string>
 
 </resources>
