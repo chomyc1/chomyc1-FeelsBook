@@ -67,17 +67,25 @@ public class FeelsBookActivity extends Activity {
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
+				if (text.length() > 140) {
+					Context context = getApplicationContext();
+					CharSequence message = getString(R.string.message_too_long);
+					int duration = Toast.LENGTH_LONG;
+					Toast toast = Toast.makeText(context, message, duration);
+					toast.show();
+				}
+				else {
+					EmotionRecord newRecord = new Sadness(text, new Date(System.currentTimeMillis()));
+					emotionRecordList.add(newRecord);
+					adapter.notifyDataSetChanged();
+					saveInFile();
 
-				EmotionRecord newRecord = new Sadness(text, new Date(System.currentTimeMillis()));
-				emotionRecordList.add(newRecord);
-				adapter.notifyDataSetChanged();
-				saveInFile();
-
-				Context context = getApplicationContext();
-				CharSequence message = "Emotion record saved.";
-				int duration = Toast.LENGTH_LONG;
-				Toast toast = Toast.makeText(context, message, duration);
-				toast.show();
+					Context context = getApplicationContext();
+					CharSequence message = getString(R.string.record_saved);
+					int duration = Toast.LENGTH_LONG;
+					Toast toast = Toast.makeText(context, message, duration);
+					toast.show();
+				}
 			}
 		});
 
@@ -124,14 +132,14 @@ public class FeelsBookActivity extends Activity {
 
 	private void saveInFile() {
 		try {
-			FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_PRIVATE); // Replace this with file_name!
+			FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_PRIVATE);
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
             Gson jsonConverter = new Gson();
 
             jsonConverter.toJson(emotionRecordList, out);
             out.flush();
+            out.close();
             fos.close();
-            // Do we close the BufferedWriter?
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

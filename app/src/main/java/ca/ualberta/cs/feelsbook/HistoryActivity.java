@@ -1,10 +1,13 @@
 package ca.ualberta.cs.feelsbook;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,13 +31,16 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class HistoryActivity extends FragmentActivity {
+public class HistoryActivity extends FragmentActivity implements DeleteHistoryDialog.DeleteHistoryDialogListener {
 
     public static final String SELECTED_MESSAGE = "ca.ualberta.cs.feelsbook.RECORD_MESSAGE";
     public static final String SELECTED_DATE = "ca.ualberta.cs.feelsbook.RECORD_DATE";
+    public static final String SELECTED_INDEX = "ca.ualberta.cs.feelsbook.RECORD_INDEX";
+    private final int REQUEST_CODE = 1;
     private ListView recordsListView;
     private ArrayAdapter<EmotionRecord> adapter;
     private ArrayList<EmotionRecord> emotionRecordList;
+    private EmotionRecord selectedRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +66,7 @@ public class HistoryActivity extends FragmentActivity {
         deleteHistoryButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setResult(RESULT_OK);
-                showEmotionCount();
+                deleteHistoryPrompt();
             }
         });
 
@@ -73,10 +79,8 @@ public class HistoryActivity extends FragmentActivity {
 
                 setResult(RESULT_OK);
                 //String text = (String) selection.getItemAtPosition(position);
-                EmotionRecord selectedRecord = (EmotionRecord) selection.getItemAtPosition(position);
-                String selectedMessage = selectedRecord.getMessage();
-                Date selectedDate = selectedRecord.getDate();
-                startEditRecordActivity(selectedMessage, selectedDate);
+                selectedRecord = (EmotionRecord) selection.getItemAtPosition(position);
+                startEditRecordActivity();
             }
         });
     }
@@ -168,17 +172,89 @@ public class HistoryActivity extends FragmentActivity {
         countFragment.setArguments(argumentsBundle);
         FragmentManager manager = getSupportFragmentManager();
         countFragment.show(manager, "Emotion count");
-
     }
 
-    private void startEditRecordActivity(String selectedMessage, Date selectedDate) {
+    private void deleteHistoryPrompt() {
+        DialogFragment deleteFragment = new DeleteHistoryDialog();
+        FragmentManager manager = getSupportFragmentManager();
+        deleteFragment.show(manager, "Delete history");
+    }
+
+    @Override
+    public void deleteDialogConfirmed(DialogFragment dialog) {
+        try {
+            FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_PRIVATE);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson jsonConverter = new Gson();
+
+            emotionRecordList.clear();
+            adapter.clear();
+            adapter.notifyDataSetChanged();
+
+            jsonConverter.toJson(emotionRecordList, out);
+            out.flush();
+            out.close();
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    private void startEditRecordActivity() {
+        //String selectedMessage = selectedRecord.getMessage();
+        //Date selectedDate = selectedRecord.getDate();
+
         Intent intent = new Intent(this, EditRecordActivity.class);
-        intent.putExtra(SELECTED_MESSAGE, selectedMessage);
-        intent.putExtra(SELECTED_DATE, selectedDate);
-        startActivity(intent);
+        intent.putExtra(SELECTED_MESSAGE, selectedRecord.getMessage());
+        intent.putExtra(SELECTED_DATE, selectedRecord.getDate());
+        startActivityForResult(intent, REQUEST_CODE);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data != null) {
+            int test = emotionRecordList.size();
+            String newMessage = data.getStringExtra("editedMessage");
+            selectedRecord.setMessage(newMessage);
+            saveInFile();
+            adapter.notifyDataSetChanged();
+
+            Context context = getApplicationContext();
+            CharSequence message = getString(R.string.record_edited);
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, message, duration);
+            toast.show();
+        }
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(getString(R.string.file_name), Context.MODE_PRIVATE);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson jsonConverter = new Gson();
+
+            jsonConverter.toJson(emotionRecordList, out);
+            out.flush();
+            out.close();
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
     /*
     @Override
     protected void onStart() {

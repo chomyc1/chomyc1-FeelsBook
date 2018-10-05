@@ -13,5 +13,11 @@
     <string name="delete_history">Delete history</string>
     <string name="emotion_count">Emotion Count:</string>
     <string name="close">Close</string>
+    <string name="delete_message">Are you sure? This will delete the entire history.</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="record_edited">Emotion record edited.</string>
+    <string name="record_saved">Emotion record saved.</string>
+    <string name="message_too_long">Comments are 140 characters or less. The emotion record was not saved.</string>
 
 </resources>

@@ -12,12 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d39b099-9888-463c-9807-d3a31075db17" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/ChangeTimeDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/DeleteHistoryDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chomyc1-FeelsBook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chomyc1-FeelsBook.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,44 +45,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="HistoryActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HistoryActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+            <state relative-caret-position="126">
+              <caret line="212" column="71" lean-forward="true" selection-start-line="212" selection-start-column="71" selection-end-line="212" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1920#2088#0" expanded="true" />
-                <element signature="e#2087#2088#0" expanded="true" />
-                <element signature="e#2139#2307#0" expanded="true" />
-                <element signature="e#2306#2307#0" expanded="true" />
-                <element signature="e#2358#3145#0" expanded="true" />
-                <element signature="e#3144#3145#0" expanded="true" />
-                <element signature="e#3563#3592#0" expanded="true" />
+                <element signature="e#6682#6711#0" expanded="true" />
+                <element signature="e#8573#8606#0" expanded="true" />
+                <element signature="e#8996#9025#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmotionCountDialog.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java">
+      <file leaf-file-name="EditRecordActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="646">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#609#631#0" expanded="true" />
-                <element signature="e#723#737#0" expanded="true" />
-                <element signature="e#598#840#0" expanded="true" />
-                <element signature="e#839#840#0" expanded="true" />
+                <element signature="e#1165#1559#0" expanded="true" />
+                <element signature="e#1558#1559#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Translations Editor" pinned="false" current-in-tab="false">
-        <entry file="android-dummy://C:/AndroidStudioProjects/chomyc1-FeelsBook/app/Translations Editor">
-          <provider selected="true" editor-type-id="string-resource-editor">
+      <file leaf-file-name="FeelsBookActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="140" column="24" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_edit_record.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
             <state />
           </provider>
         </entry>
@@ -88,6 +101,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -2213,9 +2227,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/Anger.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/Joy.java" />
@@ -2223,11 +2235,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/Sadness.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/Surprise.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/Fear.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionRecord.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/DeleteHistoryDialogListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/DeleteHistoryDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/ChangeTimeDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionRecord.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java" />
       </list>
     </option>
   </component>
@@ -2241,6 +2257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2268,7 +2285,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -2441,13 +2457,13 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32992327" />
       <window_info anchor="right" id="StringPreview" order="3" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Preview" order="3" weight="0.32985553" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32992327" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -2459,17 +2475,41 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6682#6711#0" expanded="true" />
+            <element signature="e#8573#8606#0" expanded="true" />
+            <element signature="e#8996#9025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="android-dummy://C:/AndroidStudioProjects/chomyc1-FeelsBook/app/Translations Editor">
+      <provider selected="true" editor-type-id="string-resource-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2805">
           <caret line="165" selection-start-line="165" selection-end-line="165" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1920#2088#0" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2139#2307#0" expanded="true" />
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="e#2358#3145#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3563#3592#0" expanded="true" />
+            <element signature="e#6682#6711#0" expanded="true" />
+            <element signature="e#8573#8606#0" expanded="true" />
+            <element signature="e#8996#9025#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2480,10 +2520,6 @@
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#609#631#0" expanded="true" />
-            <element signature="e#723#737#0" expanded="true" />
-            <element signature="e#598#840#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2494,10 +2530,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
@@ -2517,8 +2553,7 @@
           <caret line="64" selection-start-line="64" selection-end-line="75" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2111#2452#0" expanded="true" />
-            <element signature="e#2451#2452#0" expanded="true" />
+            <element signature="e#4169#4198#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2529,22 +2564,18 @@
           <caret line="136" column="28" lean-forward="true" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1920#2088#0" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2139#2307#0" expanded="true" />
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="e#2358#3145#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3563#3592#0" expanded="true" />
+            <element signature="e#6682#6711#0" expanded="true" />
+            <element signature="e#8573#8606#0" expanded="true" />
+            <element signature="e#8996#9025#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
@@ -2564,8 +2595,7 @@
           <caret line="64" selection-start-line="64" selection-end-line="75" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2111#2452#0" expanded="true" />
-            <element signature="e#2451#2452#0" expanded="true" />
+            <element signature="e#4169#4198#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2576,13 +2606,9 @@
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1920#2088#0" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2139#2307#0" expanded="true" />
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="e#2358#3145#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3563#3592#0" expanded="true" />
+            <element signature="e#6682#6711#0" expanded="true" />
+            <element signature="e#8573#8606#0" expanded="true" />
+            <element signature="e#8996#9025#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2593,8 +2619,7 @@
           <caret line="48" column="70" lean-forward="true" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2111#2452#0" expanded="true" />
-            <element signature="e#2451#2452#0" expanded="true" />
+            <element signature="e#4169#4198#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2605,13 +2630,9 @@
           <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1920#2088#0" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2139#2307#0" expanded="true" />
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="e#2358#3145#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3563#3592#0" expanded="true" />
+            <element signature="e#6682#6711#0" expanded="true" />
+            <element signature="e#8573#8606#0" expanded="true" />
+            <element signature="e#8996#9025#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2633,14 +2654,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml">
-      <provider editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -2649,11 +2662,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342" />
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/Fear.java">
@@ -2698,27 +2711,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml">
-      <provider editor-type-id="text-editor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/DeleteHistoryDialogListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/DeleteHistoryDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="49" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/ChangeTimeDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#987#1010#0" expanded="true" />
+            <element signature="e#1046#1069#0" expanded="true" />
+            <element signature="e#1113#1128#0" expanded="true" />
+            <element signature="e#1406#1421#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2728,57 +2753,67 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2111#2452#0" expanded="true" />
-            <element signature="e#2451#2452#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/DeleteHistoryDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="android-dummy://C:/AndroidStudioProjects/chomyc1-FeelsBook/app/Translations Editor">
       <provider selected="true" editor-type-id="string-resource-editor">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1920#2088#0" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2139#2307#0" expanded="true" />
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="e#2358#3145#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3563#3592#0" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_record.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionCountDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#609#631#0" expanded="true" />
-            <element signature="e#723#737#0" expanded="true" />
-            <element signature="e#598#840#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EmotionRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/EditRecordActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1165#1559#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/FeelsBookActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="140" column="24" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/feelsbook/HistoryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="212" column="71" lean-forward="true" selection-start-line="212" selection-start-column="71" selection-end-line="212" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6682#6711#0" expanded="true" />
+            <element signature="e#8573#8606#0" expanded="true" />
+            <element signature="e#8996#9025#0" expanded="true" />
           </folding>
         </state>
       </provider>

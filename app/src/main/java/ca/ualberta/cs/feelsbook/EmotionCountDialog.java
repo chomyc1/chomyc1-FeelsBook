@@ -8,11 +8,9 @@ import android.support.v4.app.DialogFragment;
 
 public class EmotionCountDialog extends DialogFragment {
 
-    private AlertDialog.Builder dialogBuilder;
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        dialogBuilder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         Bundle argumentsBundle = getArguments();
         String countMessage = argumentsBundle.getString("countMessageKey");
 
@@ -28,5 +26,4 @@ public class EmotionCountDialog extends DialogFragment {
         AlertDialog displayedDialog = dialogBuilder.create();
         return displayedDialog;
     }
-
 }

@@ -5,7 +5,7 @@ import java.util.Date;
 public abstract class EmotionRecord {
     protected String emotionType;
     private String message;
-    private Date date;
+    public Date date;
 
     public EmotionRecord (String inputMessage, Date inputDate){
         message = inputMessage;
@@ -18,6 +18,10 @@ public abstract class EmotionRecord {
 
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String newMessage) {
+        message = newMessage;
     }
 
     public Date getDate() {
