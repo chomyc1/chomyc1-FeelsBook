@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -71,7 +72,12 @@ public class FeelsBookActivity extends Activity {
 				emotionRecordList.add(newRecord);
 				adapter.notifyDataSetChanged();
 				saveInFile();
-				//finish();
+
+				Context context = getApplicationContext();
+				CharSequence message = "Emotion record saved.";
+				int duration = Toast.LENGTH_LONG;
+				Toast toast = Toast.makeText(context, message, duration);
+				toast.show();
 			}
 		});
 
