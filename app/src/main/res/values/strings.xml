@@ -30,5 +30,7 @@
     <string name="no_emotion_selected">Please select an emotion.</string>
     <string name="record_history">Emotion record history:</string>
     <string name="comment">Comment:</string>
+    <string name="edit_time">Edit time</string>
+    <string name="edit_date">Edit date</string>
 
 </resources>

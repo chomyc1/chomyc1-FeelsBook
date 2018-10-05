@@ -201,9 +201,6 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
     }
 
     private void startEditRecordActivity() {
-        //String selectedMessage = selectedRecord.getMessage();
-        //Date selectedDate = selectedRecord.getDate();
-
         Intent intent = new Intent(this, EditRecordActivity.class);
         intent.putExtra(SELECTED_MESSAGE, selectedRecord.getMessage());
         intent.putExtra(SELECTED_DATE, selectedRecord.getDate());
@@ -213,9 +210,21 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
+            boolean delete = data.getBooleanExtra("delete", false);
+            if (delete) {
+                emotionRecordList.remove(selectedRecord);
+                saveInFile();
+                adapter.notifyDataSetChanged();
+                return;
+            }
+
             int test = emotionRecordList.size();
             String newMessage = data.getStringExtra("editedMessage");
+            Date newDate = (Date) data.getSerializableExtra("editedDate");
             selectedRecord.setMessage(newMessage);
+            selectedRecord.setDate(newDate);
+            //sort(selectedRecord);
+
             saveInFile();
             adapter.notifyDataSetChanged();
 
@@ -226,6 +235,7 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
             toast.show();
         }
     }
+
 
     private void saveInFile() {
         try {
