@@ -17,9 +17,7 @@ public class EmotionCountDialog extends DialogFragment {
         dialogBuilder.setTitle(R.string.emotion_count);
         dialogBuilder.setMessage(countMessage);
         dialogBuilder.setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
-            //@Override
             public void onClick(DialogInterface dialog, int id) {
-                // We don't need to do anything in this case, can we remove this method?
             }
         });
 

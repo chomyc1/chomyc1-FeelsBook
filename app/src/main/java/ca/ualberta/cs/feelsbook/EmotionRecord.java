@@ -33,9 +33,14 @@ public abstract class EmotionRecord {
     }
 
     public String toString() {
+        String outputString;
         String emotionType = getEmotionType();
-        String outputString = emotionType + " | " + date.toString() + " | " + message;
+        if (message.equals("")) { // Don't display anything for the message if we don't have one.
+            outputString = emotionType + " | " + date.toString();
+        }
+        else {
+            outputString = emotionType + " | " + date.toString() + " | " + message;
+        }
         return outputString;
-        // If message is blank, don't include it in the output
     }
 }

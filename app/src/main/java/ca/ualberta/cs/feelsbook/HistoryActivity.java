@@ -12,20 +12,17 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -35,7 +32,6 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
 
     public static final String SELECTED_MESSAGE = "ca.ualberta.cs.feelsbook.RECORD_MESSAGE";
     public static final String SELECTED_DATE = "ca.ualberta.cs.feelsbook.RECORD_DATE";
-    public static final String SELECTED_INDEX = "ca.ualberta.cs.feelsbook.RECORD_INDEX";
     private final int REQUEST_CODE = 1;
     private ListView recordsListView;
     private ArrayAdapter<EmotionRecord> adapter;
@@ -67,13 +63,7 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
 
         recordsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> selection, View v, int position, long l) {
-                //setResult(RESULT_OK);
-                //String text = bodyText.getText().toString();
-                //saveInFile(text, new Date(System.currentTimeMillis()));
-                //finish();
-
                 setResult(RESULT_OK);
-                //String text = (String) selection.getItemAtPosition(position);
                 selectedRecord = (EmotionRecord) selection.getItemAtPosition(position);
                 startEditRecordActivity();
             }
@@ -223,7 +213,7 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
             Date newDate = (Date) data.getSerializableExtra("editedDate");
             selectedRecord.setMessage(newMessage);
             selectedRecord.setDate(newDate);
-            //sort(selectedRecord);
+            /*sort(); I did not implement sorting; ran out of time.*/
 
             saveInFile();
             adapter.notifyDataSetChanged();
@@ -257,38 +247,3 @@ public class HistoryActivity extends FragmentActivity implements DeleteHistoryDi
         }
     }
 }
-
-
-
-    /*
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
-        //String[] records = loadFromFile();
-        //adapter = new ArrayAdapter<String>(this, R.layout.list_item, records);
-        //recordsList.setAdapter(adapter);
-    }
-
-
-    private String[] loadFromFile() {
-        ArrayList<String> records = new ArrayList<String>();
-        try {
-            FileInputStream fis = openFileInput(getString(R.string.file_name));
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            String line = in.readLine();
-            while (line != null) {
-                records.add(line);
-                line = in.readLine();
-            }
-
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return records.toArray(new String[records.size()]);
-    }
-*/

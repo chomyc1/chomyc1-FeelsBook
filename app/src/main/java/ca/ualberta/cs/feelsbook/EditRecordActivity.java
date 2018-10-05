@@ -1,26 +1,19 @@
 package ca.ualberta.cs.feelsbook;
 
-import android.content.Context;
 import android.content.Intent;
-//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
-//import android.app.TimePickerDialog;
 
 import java.util.Date;
 
 public class EditRecordActivity extends FragmentActivity {
 
     private EditText messageText;
-    // We might want 2 fragments, one for date and one for time
-    TimePickerFragment newFragment = null;
+    TimePickerFragment newTimeFragment = null;
+    DatePickerFragment newDateFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +36,35 @@ public class EditRecordActivity extends FragmentActivity {
                 setResult(RESULT_OK);
                 String newMessage = messageText.getText().toString();
 
-                if ((newFragment != null) && (newFragment.getChosenHour() != -1)) { // Means a new time was chosen
-                    int newHour = newFragment.getChosenHour();
-                    int newMinute = newFragment.getChosenMinute();
+                if ((newTimeFragment != null) && (newTimeFragment.getChosenHour() != -1)) { // Means a new time was chosen
+                    int newHour = newTimeFragment.getChosenHour();
+                    int newMinute = newTimeFragment.getChosenMinute();
                     date.setHours(newHour);
                     date.setMinutes(newMinute);
                 }
-
+                if ((newDateFragment != null) && (newDateFragment.getChosenYear() != -1)) { // Means a new date was chosen
+                    int newYear = newDateFragment.getChosenYear() - 1900;
+                    int newMonth = newDateFragment.getChosenMonth();
+                    int newDay = newDateFragment.getChosenDay();
+                    date.setYear(newYear);
+                    date.setMonth(newMonth);
+                    date.setDate(newDay);
+                }
                 saveChanges(newMessage, date, false);
             }
         });
 
         timeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                newFragment = new TimePickerFragment();
-                newFragment.show(getSupportFragmentManager(), "timePicker");
-                //TextView textView = (TextView) findViewById(R.id.Comment);
-                //textView.setText(String.valueOf(response));
+                newTimeFragment = new TimePickerFragment();
+                newTimeFragment.show(getSupportFragmentManager(), "timePicker");
+            }
+        });
+
+        dateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                newDateFragment = new DatePickerFragment();
+                newDateFragment.show(getSupportFragmentManager(), "datePicker");
             }
         });
 
